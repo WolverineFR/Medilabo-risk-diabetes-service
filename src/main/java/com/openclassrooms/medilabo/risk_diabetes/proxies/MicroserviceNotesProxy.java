@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.openclassrooms.medilabo.risk_diabetes.beans.NoteBean;
 
 
-@FeignClient(name = "medilabo-note-service")
+@FeignClient(name = "medilabo-note-service", url = "http://localhost:8082")
 public interface MicroserviceNotesProxy {
 
 	@GetMapping(value = "/notes/patient/{patientId}")

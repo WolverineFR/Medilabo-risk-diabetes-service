@@ -1,4 +1,4 @@
-package com.openclassrooms.medilabo.risk_diabetes_service;
+package com.openclassrooms.medilabo.risk_diabetes;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
