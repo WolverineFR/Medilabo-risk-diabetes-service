@@ -11,19 +11,31 @@ import org.springframework.web.bind.annotation.RestController;
 import com.openclassrooms.medilabo.risk_diabetes.model.PatientRiskLevel;
 import com.openclassrooms.medilabo.risk_diabetes.service.RiskCalculatorService;
 
+/**
+ * Contrôleur REST pour le calcul du risque de diabète d’un patient.
+ * 
+ * Expose un endpoint pour récupérer le niveau de risque d’un patient à partir
+ * de son identifiant en interrogeant RiskCalculatorService}.
+ */
 @RestController
 public class RiskCalculatorController {
 
 	@Autowired
 	private RiskCalculatorService calculatorService;
-	
+
 	private static final Logger logger = LogManager.getLogger(RiskCalculatorController.class);
-	
+
 	@Autowired
 	public RiskCalculatorController(RiskCalculatorService calculatorService) {
 		this.calculatorService = calculatorService;
 	}
-	
+
+	/**
+	 * Récupère le niveau de risque de diabète pour un patient donné.
+	 *
+	 * @param patientId identifiant du patient
+	 * @return ResponseEntity contenant PatientRiskLevel et status HTTP 200
+	 */
 	@GetMapping("/calculateRisk/{patientId}")
 	public ResponseEntity<PatientRiskLevel> getPatientRiskLevel(@PathVariable String patientId) {
 		PatientRiskLevel patientRiskLevel = calculatorService.calculatePatientRiskLevel(patientId);
