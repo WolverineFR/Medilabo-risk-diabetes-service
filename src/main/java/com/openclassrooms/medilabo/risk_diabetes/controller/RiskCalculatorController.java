@@ -20,12 +20,9 @@ import com.openclassrooms.medilabo.risk_diabetes.service.RiskCalculatorService;
 @RestController
 public class RiskCalculatorController {
 
-	@Autowired
 	private RiskCalculatorService calculatorService;
-
 	private static final Logger logger = LogManager.getLogger(RiskCalculatorController.class);
 
-	@Autowired
 	public RiskCalculatorController(RiskCalculatorService calculatorService) {
 		this.calculatorService = calculatorService;
 	}
